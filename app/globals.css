@@ -1,0 +1,148 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+:root {
+  --background: #ffffff;
+  --foreground: #212529;
+
+  --primary: #875a7b;
+  --primary-hover: #714b67;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f6f7f9;
+  --secondary-foreground: #495057;
+
+  --accent: #e9ecef;
+  --accent-foreground: #212529;
+
+  --border: #dee2e6;
+  --input: #dee2e6;
+
+  --muted: #6c757d;
+  --muted-foreground: #868e96;
+
+  --success: #28a745;
+  --warning: #f39c12;
+  --danger: #dc3545;
+  --info: #17a2b8;
+
+  --card: #ffffff;
+  --card-foreground: #212529;
+
+  --popover: #ffffff;
+  --popover-foreground: #212529;
+
+  --destructive: #dc3545;
+  --destructive-foreground: #ffffff;
+
+  --ring: #875a7b;
+
+  --radius: 0.5rem;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  --transition-fast: 150ms;
+  --transition-base: 200ms;
+  --transition-slow: 300ms;
+}
+
+.dark {
+  --background: #0f1419;
+  --foreground: #e9ecef;
+
+  --primary: #a37098;
+  --primary-hover: #b88bab;
+  --primary-foreground: #ffffff;
+
+  --secondary: #1c2128;
+  --secondary-foreground: #adb5bd;
+
+  --accent: #2d333b;
+  --accent-foreground: #e9ecef;
+
+  --border: #373e47;
+  --input: #373e47;
+
+  --muted: #6c757d;
+  --muted-foreground: #8b949e;
+
+  --success: #3fb950;
+  --warning: #d29922;
+  --danger: #f85149;
+  --info: #58a6ff;
+
+  --card: #161b22;
+  --card-foreground: #e9ecef;
+
+  --popover: #161b22;
+  --popover-foreground: #e9ecef;
+
+  --destructive: #f85149;
+  --destructive-foreground: #ffffff;
+
+  --ring: #a37098;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family:
+    var(--font-geist-sans),
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+button,
+[role='button'] {
+  transition: all var(--transition-fast) ease-in-out;
+}
+
+input,
+textarea,
+select {
+  transition:
+    border-color var(--transition-fast) ease-in-out,
+    box-shadow var(--transition-fast) ease-in-out;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
