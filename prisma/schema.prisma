@@ -1,0 +1,71 @@
+datasource db {
+  provider = "sqlserver"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Usuario {
+  codigo    String   @id @map("CDG_USR") @db.Char(10)
+  nombre    String   @map("DES_USR") @db.VarChar(60)
+  nivel     String?  @map("NIV_USR") @db.Char(1)
+  direccion String?  @map("DIR_USR") @db.VarChar(60)
+  password  String   @map("PSW_USR") @db.Char(10)
+  activo    Decimal? @map("SWT_USR") @db.Decimal(18, 0)
+  ptoVta    String?  @map("PTO_VTA") @db.Char(3)
+  ptoVtaf   String   @map("pto_vtaf") @db.Char(4)
+  ptoVtab   String   @map("pto_vtab") @db.Char(4)
+  ptoVtanc  String   @map("pto_vtanc") @db.Char(4)
+  ptoVtand  String   @map("pto_vtand") @db.Char(4)
+  ptoVtancb String   @map("pto_vtancb") @db.Char(4)
+
+  @@map("M_USUARI")
+}
+
+model Tabla {
+  codigo      String      @id @map("CDG_TAB") @db.Char(3)
+  descripcion String      @map("DES_TAB") @db.VarChar(30)
+  dstTab      String?     @map("DST_TAB") @db.Char(8)
+  oriTab      String?     @map("ORI_TAB") @db.VarChar(30)
+  frmTab      String?     @map("FRM_TAB") @db.Char(8)
+  ctbTab      String?     @map("CTB_TAB") @db.Char(1)
+  items       ItemTabla[]
+
+  @@map("M_TABLAS")
+}
+
+model ItemTabla {
+  codigoTabla     String   @map("CDG_TAB") @db.Char(3)
+  numeroItem      String   @map("NUM_ITEM") @db.Char(3)
+  descripcionItem String?  @map("DES_ITEM") @db.VarChar(250)
+  abrItem         String?  @map("ABR_ITEM") @db.Char(5)
+  swtItem         Decimal? @map("SWT_ITEM") @db.Decimal(18, 0)
+  tipItem         String?  @map("TIP_ITEM") @db.Char(1)
+  valItem         Decimal? @map("VAL_ITEM") @db.Decimal(18, 0)
+  ref1            String?  @map("REF1") @db.VarChar(20)
+  swtRef1         Decimal? @map("SWT_REF1") @db.Decimal(18, 0)
+  ref2            String?  @map("REF2") @db.VarChar(20)
+  swtRef2         Decimal? @map("SWT_REF2") @db.Decimal(18, 0)
+  ref3            String?  @map("REF3") @db.VarChar(20)
+  swtRef3         Decimal? @map("SWT_REF3") @db.Decimal(18, 0)
+  ref4            String?  @map("REF4") @db.VarChar(20)
+  swtRef4         Decimal? @map("SWT_REF4") @db.Decimal(18, 0)
+  ref5            String?  @map("REF5") @db.VarChar(20)
+  swtRef5         Decimal? @map("SWT_REF5") @db.Decimal(18, 0)
+  swtDet          String?  @map("SWT_DET") @db.Char(1)
+  sql1            String?  @map("SQL1") @db.Text
+  sql2            String?  @map("SQL2") @db.Text
+  sql3            String?  @map("SQL3") @db.Text
+  sql4            String?  @map("SQL4") @db.Text
+  sql5            String?  @map("SQL5") @db.Text
+  obsQuery        String?  @map("OBS_QUERY") @db.Text
+  porMmin         Decimal? @map("POR_MMIN") @db.Decimal(19, 2)
+
+  tabla Tabla @relation(fields: [codigoTabla], references: [codigo], onDelete: Cascade)
+
+  @@id([codigoTabla, numeroItem])
+  @@map("D_TABLAS")
+}
+
+

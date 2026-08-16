@@ -1,24 +1,34 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
-    "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
+    "target": "ES2023",
+    "esModuleInterop": true,
+    "ignoreDeprecations": "5.0",
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
+      "@/auth/*": ["./lib/auth/*"],
+      "@/core/*": ["./lib/core/*"],
+      "@/inventario/*": ["./lib/inventario/*"],
+      "@/ventas/*": ["./lib/ventas/*"],
+      "@/proveedores/*": ["./lib/proveedores/*"],
+      "@/configuracion/*": ["./lib/configuracion/*"],
+      "@/components/*": ["./components/*"],
+      "@/actions/*": ["./actions/*"],
+      "@/validators/*": ["./lib/validators/*"],
       "@/*": ["./*"]
     }
   },
@@ -28,7 +38,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "script/mcp-sqlserver.mjs"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "type": "module"
 }

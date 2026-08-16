@@ -1,0 +1,19 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2025-latest
+    container_name: sqlserver
+
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: 'mediocero123#'
+      MSSQL_PID: 'Developer'
+
+    ports:
+      - '1433:1433'
+
+    volumes:
+      - lucemedic_sqlserver_data:/var/opt/mssql
+
+volumes:
+  lucemedic_sqlserver_data:
+    external: true

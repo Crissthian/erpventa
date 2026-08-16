@@ -39,3 +39,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ide
+.idea
+
+# codebase-memory-mcp
+.codebase-memory
+.tools/
+
+# opencode 
+/.agents/
+.opencode
+.mcp.json
+AGENTS.md
+opencode.json
+skills-lock.json
